@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>kvnathhllh | Official Bio Links</title>
+    
+    <!-- Skema Warna Sistem Browser -->
+    <meta name="color-scheme" content="dark">
+
+    <!-- Favicon (Ikon Tab Browser) -->
+    <link rel="icon" href="https://files.catbox.moe/s1cyco.jpg" type="image/jpeg">
+
+    <!-- Meta Tags untuk SEO & Preview Share -->
+    <meta name="description" content="Official link in bio for kvnathhllh. Tech Enthusiast & Content Creator.">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="kvnathhllh | Official Links">
+    <meta property="og:description" content="Connect with kvnathhllh across social media platforms.">
+    <meta property="og:image" content="https://files.catbox.moe/s1cyco.jpg">
+    <meta property="og:url" content="https://kvnathhllh.my.id">
+
+    <!-- Twitter Cards (X) -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="kvnathhllh | Official Links">
+    <meta name="twitter:description" content="Connect with kvnathhllh across social media platforms.">
+    <meta name="twitter:image" content="https://files.catbox.moe/s1cyco.jpg">
+
+    <!-- Font Google -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome untuk ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background: radial-gradient(circle at bottom, #1e1b4b 0%, #0f172a 60%, #020617 100%);
+            color: #f8fafc;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 16px 12px;
+            overflow-x: hidden;
+            position: relative;
+            transition: background 0.5s ease;
+        }
+
+        /* Ambient Dynamic Nebula (Latar Awal Estetik) */
+        .nebula-glow {
+            position: fixed;
+            top: 20%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, rgba(168, 85, 247, 0.08) 40%, transparent 70%);
+            filter: blur(80px);
+            pointer-events: none;
+            z-index: 1;
+            animation: nebulaPulse 10s infinite ease-in-out alternate;
+            transition: opacity 0.5s ease;
+        }
+
+        @keyframes nebulaPulse {
+            0% { transform: translate(-50%, -50%) scale(0.9); opacity: 0.6; }
+            100% { transform: translate(-50%, -50%) scale(1.15); opacity: 0.9; }
+        }
+
+        body.video-active .nebula-glow {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        /* Background Videos Preloaded */
+        .bg-video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+            opacity: 0;
+            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            pointer-events: none;
+        }
+
+        /* Video 1 & 2 (Full Layar & Lirik Pas di Tengah) */
+        #bg-video1, #bg-video2 {
+            object-fit: cover;
+            object-position: center center; 
+        }
+
+        .bg-video.active {
+            opacity: 1;
+        }
+
+        /* Transisi Smooth Blur & Focus Overlay */
+        .tv-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            z-index: 999;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        @keyframes cinematicSwitch {
+            0% { opacity: 0; filter: blur(0px); }
+            50% { opacity: 1; filter: blur(15px); }
+            100% { opacity: 0; filter: blur(0px); }
+        }
+
+        .tv-overlay.active {
+            animation: cinematicSwitch 0.45s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+        }
+
+        /* Watermark Sumber Video TikTok (Di dalam Card) */
+        .watermark {
+            margin-top: 10px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 8px 12px;
+            border-radius: 12px;
+            font-size: 11px;
+            color: #94a3b8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .watermark.hidden {
+            opacity: 0;
+            visibility: hidden;
+            max-height: 0;
+            margin-top: 0;
+            padding: 0;
+            border: none;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .watermark i {
+            color: #fbbf24;
+            font-size: 12px;
+        }
+
+        .watermark span {
+            color: #f8fafc;
+            font-weight: 600;
+        }
+
+        /* Scrollbar styling */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #020617;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #fbbf24;
+            border-radius: 3px;
+        }
+
+        /* Background Stars & Meteor Container */
+        .stars-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            transition: opacity 0.5s ease;
+        }
+
+        body.video-active .stars-container {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .star {
+            position: absolute;
+            background: #ffffff;
+            border-radius: 50%;
+            animation: twinkle var(--duration) infinite ease-in-out;
+            opacity: var(--opacity);
+        }
+
+        @keyframes twinkle {
+            0%, 100% { transform: scale(1); opacity: 0.2; }
+            50% { transform: scale(1.4); opacity: 1; }
+        }
+
+        /* Partikel Debu Kosmik Melayang */
+        .dust-particle {
+            position: absolute;
+            background: rgba(251, 191, 36, 0.6);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: floatUp var(--duration) infinite linear;
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(100vh) scale(0.5); opacity: 0; }
+            50% { opacity: 0.8; }
+            100% { transform: translateY(-10vh) scale(1.2); opacity: 0; }
+        }
+
+        /* Meteor / Shooting Star Realistis (Dynamic CSS) */
+        .meteor {
+            position: absolute;
+            height: 2px;
+            background: linear-gradient(90deg, rgba(255, 255, 255, 1), rgba(251, 191, 36, 0.8), transparent);
+            border-radius: 999px;
+            filter: drop-shadow(0 0 8px rgba(251, 191, 36, 0.9));
+            animation: shootMeteor linear forwards;
+            pointer-events: none;
+            opacity: 0;
+        }
+
+        @keyframes shootMeteor {
+            0% {
+                transform: translateX(0) translateY(0) rotate(-38deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateX(-120vw) translateY(90vh) rotate(-38deg);
+                opacity: 0;
+            }
+        }
+
+        /* Ambient Citylight Glow */
+        .citylight-glow {
+            position: fixed;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80vw;
+            height: 100px;
+            background: radial-gradient(ellipse at bottom, rgba(245, 158, 11, 0.25) 0%, rgba(14, 165, 233, 0.08) 50%, transparent 100%);
+            filter: blur(40px);
+            pointer-events: none;
+            z-index: 1;
+            transition: opacity 0.5s ease;
+        }
+
+        body.video-active .citylight-glow {
+            opacity: 0;
+        }
+
+        /* Container Card (Compact & Ultra Transparent Glassmorphism) */
+        .container {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            max-width: 440px;
+            text-align: center;
+            background: rgba(15, 23, 42, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 24px 20px;
+            border-radius: 20px;
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            transition: background 0.5s ease, border-color 0.5s ease, backdrop-filter 0.5s ease;
+        }
+
+        body.video-active .container {
+            background: rgba(15, 23, 42, 0.15);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Music Controller (Pojok Kanan Atas Card) */
+        .music-controller {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            z-index: 10;
+        }
+
+        .speaker-btn {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #fbbf24;
+            font-size: 14px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.25s ease;
+        }
+
+        .speaker-btn:hover {
+            transform: scale(1.08);
+            background: rgba(245, 158, 11, 0.2);
+        }
+
+        /* Menu Pilihan Lagu */
+        .music-menu {
+            position: absolute;
+            top: 42px;
+            right: 0;
+            background: rgba(15, 23, 42, 0.95);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 12px;
+            padding: 6px;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+            width: 140px;
+            transform-origin: top right;
+            transition: all 0.2s ease;
+        }
+
+        .music-menu.hidden {
+            opacity: 0;
+            transform: scale(0.9);
+            pointer-events: none;
+            visibility: hidden;
+        }
+
+        .music-menu button {
+            background: transparent;
+            border: none;
+            color: #f8fafc;
+            text-align: left;
+            padding: 7px 10px;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 500;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .music-menu button i {
+            color: #fbbf24;
+            width: 14px;
+            text-align: center;
+        }
+
+        .music-menu button:hover {
+            background: rgba(251, 191, 36, 0.15);
+            color: #fbbf24;
+        }
+
+        /* Profile & Spinning Animation (15s) */
+        .profile-img-wrapper {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        .profile-img {
+            width: 85px;
+            height: 85px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2.5px solid #fbbf24;
+            box-shadow: 0 0 20px rgba(251, 191, 36, 0.4);
+            transition: transform 0.3s ease;
+        }
+
+        @keyframes vinylSpin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .profile-img.spinning {
+            animation: vinylSpin 15s linear infinite;
+        }
+
+        h1 {
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin-bottom: 4px;
+        }
+
+        p.bio {
+            font-size: 13px;
+            color: #94a3b8;
+            font-weight: 500;
+            margin-bottom: 16px;
+        }
+
+        /* Links List */
+        .links-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .link-btn {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 12px 16px;
+            border-radius: 12px;
+            color: #f8fafc;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+        }
+
+        .link-btn i {
+            font-size: 18px;
+            width: 20px;
+            height: 18px;
+            text-align: center;
+            color: #fbbf24;
+            transition: all 0.25s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .link-btn span {
+            flex-grow: 1;
+            text-align: center;
+        }
+
+        .link-btn:hover {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            color: #0f172a;
+            border-color: transparent;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(245, 158, 11, 0.4);
+            font-weight: 700;
+        }
+
+        .link-btn:hover i {
+            color: #0f172a;
+        }
+
+        /* Action Buttons */
+        .share-btn {
+            margin-top: 12px;
+            background: transparent;
+            border: none;
+            color: #94a3b8;
+            font-size: 12px;
+            font-weight: 500;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: color 0.2s ease;
+        }
+
+        .share-btn:hover {
+            color: #fbbf24;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 12px;
+            font-size: 11px;
+            color: #64748b;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Dynamic Nebula Glow (Latar Awal) -->
+    <div class="nebula-glow"></div>
+
+    <!-- Background Videos Preloaded -->
+    <video id="bg-video1" class="bg-video" src="https://files.catbox.moe/zkw6yy.mp4" muted loop playsinline preload="auto"></video>
+    <video id="bg-video2" class="bg-video" src="https://files.catbox.moe/1wkocl.mp4" muted loop playsinline preload="auto"></video>
+
+    <!-- Transisi Effect Overlay -->
+    <div class="tv-overlay" id="tv-overlay"></div>
+
+    <!-- Elemen Audio (Preloaded) -->
+    <audio id="audio1" src="https://mp3tourl.com/audio/1791727675825-d2d0a41a-8860-44b5-9bbe-be9a22a69250.mp3" preload="auto" loop></audio>
+    <audio id="audio2" src="https://mp3tourl.com/audio/1791727764492-32759a8e-627d-4f40-8284-6bea96741e8d.mp3" preload="auto" loop></audio>
+
+    <!-- Stars Container -->
+    <div class="stars-container" id="stars"></div>
+    
+    <!-- Ambient Glow -->
+    <div class="citylight-glow"></div>
+
+    <div class="container">
+        <!-- Tombol & Menu Musik di dalam Card (Pojok Kanan Atas) -->
+        <div class="music-controller">
+            <button class="speaker-btn" onclick="toggleMusicMenu()" title="Atur Musik">
+                <i class="fa-solid fa-volume-xmark" id="speaker-icon"></i>
+            </button>
+            <div class="music-menu hidden" id="music-menu">
+                <button onclick="playAudio(1)"><i class="fa-solid fa-music"></i> Audio 1</button>
+                <button onclick="playAudio(2)"><i class="fa-solid fa-music"></i> Audio 2</button>
+                <button onclick="muteAudio()"><i class="fa-solid fa-volume-xmark"></i> Matikan</button>
+            </div>
+        </div>
+
+        <!-- Foto Profil -->
+        <div class="profile-img-wrapper">
+            <img src="https://files.catbox.moe/s1cyco.jpg" alt="kvnathhllh" class="profile-img" id="profile-img">
+        </div>
+        
+        <!-- Nama -->
+        <h1>kvnathhllh</h1>
+        <p class="bio">Tech Enthusiast & Content Creator</p>
+
+        <!-- Tautan Media Sosial -->
+        <div class="links-list">
+            <!-- WhatsApp -->
+            <a href="https://wa.me/6281393302012" target="_blank" rel="noopener noreferrer" class="link-btn">
+                <i class="fa-brands fa-whatsapp"></i>
+                <span>WhatsApp</span>
+                <div style="width: 20px;"></div>
+            </a>
+
+            <!-- Instagram -->
+            <a href="https://instagram.com/vinnzyofc" target="_blank" rel="noopener noreferrer" class="link-btn">
+                <i class="fa-brands fa-instagram"></i>
+                <span>Instagram</span>
+                <div style="width: 20px;"></div>
+            </a>
+
+            <!-- TikTok -->
+            <a href="https://tiktok.com/@vinnzyofc" target="_blank" rel="noopener noreferrer" class="link-btn">
+                <i class="fa-brands fa-tiktok"></i>
+                <span>TikTok</span>
+                <div style="width: 20px;"></div>
+            </a>
+
+            <!-- GitHub / Portfolio -->
+            <a href="https://github.com/kvnathhllh" target="_blank" rel="noopener noreferrer" class="link-btn">
+                <i class="fa-brands fa-github"></i>
+                <span>GitHub & Portofolio</span>
+                <div style="width: 20px;"></div>
+            </a>
+
+            <!-- Lynk.id -->
+            <a href="https://lynk.id/kvnathhllh" target="_blank" rel="noopener noreferrer" class="link-btn">
+                <i class="fa-solid fa-link"></i>
+                <span>Lynk.id</span>
+                <div style="width: 20px;"></div>
+            </a>
+        </div>
+
+        <!-- Tombol Salin Link -->
+        <button class="share-btn" onclick="copyLink()">
+            <i class="fa-regular fa-copy"></i> <span id="copy-text">Salin Link Website</span>
+        </button>
+
+        <!-- Watermark Sumber Video TikTok (Di dalam Card) -->
+        <div class="watermark hidden" id="video-watermark">
+            <i class="fa-brands fa-tiktok"></i>
+            <span>Source Video & Music:</span>
+            <span id="watermark-user">@rmdnreyy_</span>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            &copy; 2026 kvnathhllh.my.id
+        </div>
+    </div>
+
+    <!-- Script Javascript -->
+    <script>
+        // Efek Bintang & Partikel Debu Latar Belakang
+        const starsContainer = document.getElementById('stars');
+        const numberOfStars = 60;
+        const numberOfDust = 15;
+
+        // Bintang Twinkle
+        for (let i = 0; i < numberOfStars; i++) {
+            const star = document.createElement('div');
+            star.classList.add('star');
+            
+            const x = Math.random() * 100;
+            const y = Math.random() * 100;
+            const size = Math.random() * 2 + 1;
+            const duration = Math.random() * 3 + 2;
+            const opacity = Math.random();
+
+            star.style.left = `${x}%`;
+            star.style.top = `${y}%`;
+            star.style.width = `${size}px`;
+            star.style.height = `${size}px`;
+            star.style.setProperty('--duration', `${duration}s`);
+            star.style.setProperty('--opacity', opacity);
+
+            starsContainer.appendChild(star);
+        }
+
+        // Partikel Debu Kosmik Melayang
+        for (let i = 0; i < numberOfDust; i++) {
+            const dust = document.createElement('div');
+            dust.classList.add('dust-particle');
+
+            const x = Math.random() * 100;
+            const size = Math.random() * 2 + 1;
+            const duration = Math.random() * 8 + 6;
+
+            dust.style.left = `${x}%`;
+            dust.style.width = `${size}px`;
+            dust.style.height = `${size}px`;
+            dust.style.setProperty('--duration', `${duration}s`);
+
+            starsContainer.appendChild(dust);
+        }
+
+        // Fungsi Pembuat Meteor Realistis Dinamis (Shooting Stars)
+        function spawnMeteor() {
+            // Jangan spawn meteor jika background video sedang aktif
+            if (document.body.classList.contains('video-active')) return;
+
+            const meteor = document.createElement('div');
+            meteor.classList.add('meteor');
+
+            // Posisi awal acak di area kanan atas layar
+            const startX = Math.random() * window.innerWidth + window.innerWidth * 0.2;
+            const startY = Math.random() * (window.innerHeight * 0.4);
+            const length = Math.random() * 80 + 100; // Panjang ekor meteor
+            const duration = Math.random() * 1.2 + 0.8; // Kecepatan realistis
+
+            meteor.style.left = `${startX}px`;
+            meteor.style.top = `${startY}px`;
+            meteor.style.width = `${length}px`;
+            meteor.style.animationDuration = `${duration}s`;
+
+            starsContainer.appendChild(meteor);
+
+            // Hapus elemen meteor setelah animasi selesai agar tidak membebani memori
+            setTimeout(() => {
+                meteor.remove();
+            }, duration * 1000);
+        }
+
+        // Interval kemunculan meteor secara berkala dan natural
+        setInterval(() => {
+            spawnMeteor();
+        }, 2200);
+
+        // Kontrol Musik, Video Background, & Efek Transisi
+        const audio1 = document.getElementById('audio1');
+        const audio2 = document.getElementById('audio2');
+        const speakerIcon = document.getElementById('speaker-icon');
+        const profileImg = document.getElementById('profile-img');
+        const musicMenu = document.getElementById('music-menu');
+        const bgVideo1 = document.getElementById('bg-video1');
+        const bgVideo2 = document.getElementById('bg-video2');
+        const tvOverlay = document.getElementById('tv-overlay');
+        const videoWatermark = document.getElementById('video-watermark');
+        const watermarkUser = document.getElementById('watermark-user');
+
+        function toggleMusicMenu() {
+            musicMenu.classList.toggle('hidden');
+        }
+
+        window.addEventListener('click', function(e) {
+            if (!document.querySelector('.music-controller').contains(e.target)) {
+                musicMenu.classList.add('hidden');
+            }
+        });
+
+        function stopAllAudio() {
+            audio1.pause();
+            audio1.currentTime = 0;
+            audio2.pause();
+            audio2.currentTime = 0;
+
+            bgVideo1.pause();
+            bgVideo1.currentTime = 0;
+            bgVideo2.pause();
+            bgVideo2.currentTime = 0;
+            bgVideo1.classList.remove('active');
+            bgVideo2.classList.remove('active');
+        }
+
+        function triggerTvEffect(callback) {
+            tvOverlay.classList.remove('active');
+            void tvOverlay.offsetWidth;
+            tvOverlay.classList.add('active');
+
+            setTimeout(() => {
+                if (callback) callback();
+            }, 180);
+        }
+
+        function playAudio(trackNumber) {
+            stopAllAudio();
+
+            triggerTvEffect(() => {
+                if (trackNumber === 1) {
+                    audio1.play().catch(err => console.log(err));
+                    bgVideo1.play().catch(err => console.log(err));
+                    bgVideo1.classList.add('active');
+                    watermarkUser.innerText = "@rmdnreyy_";
+                } else if (trackNumber === 2) {
+                    audio2.play().catch(err => console.log(err));
+                    bgVideo2.play().catch(err => console.log(err));
+                    bgVideo2.classList.add('active');
+                    watermarkUser.innerText = "@lyrics_musicyou";
+                }
+
+                document.body.classList.add('video-active');
+                videoWatermark.classList.remove('hidden');
+            });
+
+            speakerIcon.className = "fa-solid fa-volume-high";
+            profileImg.classList.add('spinning');
+            musicMenu.classList.add('hidden');
+        }
+
+        function muteAudio() {
+            stopAllAudio();
+
+            triggerTvEffect(() => {
+                document.body.classList.remove('video-active');
+                videoWatermark.classList.add('hidden');
+            });
+
+            speakerIcon.className = "fa-solid fa-volume-xmark";
+            profileImg.classList.remove('spinning');
+            musicMenu.classList.add('hidden');
+        }
+
+        // Fungsi Salin Link Website
+        function copyLink() {
+            navigator.clipboard.writeText(window.location.href);
+            const copyText = document.getElementById('copy-text');
+            copyText.innerText = 'Link Tersalin!';
+            setTimeout(() => {
+                copyText.innerText = 'Salin Link Website';
+            }, 2000);
+        }
+    </script>
+</body>
+</html>
