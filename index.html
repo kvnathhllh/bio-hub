@@ -91,7 +91,6 @@
             pointer-events: none;
         }
 
-        /* Video 1 & 2 (Full Layar & Lirik Pas di Tengah) */
         #bg-video1, #bg-video2 {
             object-fit: cover;
             object-position: center center; 
@@ -126,7 +125,7 @@
             animation: cinematicSwitch 0.45s cubic-bezier(0.25, 1, 0.5, 1) forwards;
         }
 
-        /* Watermark Sumber Video TikTok (Di dalam Card) */
+        /* Watermark Sumber Video TikTok */
         .watermark {
             margin-top: 10px;
             background: rgba(255, 255, 255, 0.04);
@@ -205,7 +204,6 @@
             50% { transform: scale(1.4); opacity: 1; }
         }
 
-        /* Partikel Debu Kosmik Melayang */
         .dust-particle {
             position: absolute;
             background: rgba(251, 191, 36, 0.6);
@@ -220,7 +218,6 @@
             100% { transform: translateY(-10vh) scale(1.2); opacity: 0; }
         }
 
-        /* Meteor / Shooting Star Realistis (Dynamic CSS) */
         .meteor {
             position: absolute;
             height: 2px;
@@ -243,7 +240,6 @@
             }
         }
 
-        /* Ambient Citylight Glow */
         .citylight-glow {
             position: fixed;
             bottom: 0;
@@ -262,7 +258,7 @@
             opacity: 0;
         }
 
-        /* Container Card (Compact & Ultra Transparent Glassmorphism) */
+        /* Container Card & Entrance Animation */
         .container {
             position: relative;
             z-index: 2;
@@ -277,6 +273,19 @@
             -webkit-backdrop-filter: blur(16px);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
             transition: background 0.5s ease, border-color 0.5s ease, backdrop-filter 0.5s ease;
+            
+            animation: cardEntrance 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        @keyframes cardEntrance {
+            0% {
+                opacity: 0;
+                transform: translateY(30px) scale(0.95);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
         }
 
         body.video-active .container {
@@ -287,7 +296,7 @@
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
         }
 
-        /* Music Controller (Pojok Kanan Atas Card) */
+        /* Music Controller */
         .music-controller {
             position: absolute;
             top: 16px;
@@ -315,7 +324,6 @@
             background: rgba(245, 158, 11, 0.2);
         }
 
-        /* Menu Pilihan Lagu */
         .music-menu {
             position: absolute;
             top: 42px;
@@ -369,11 +377,23 @@
             color: #fbbf24;
         }
 
-        /* Profile & Spinning Animation (15s) */
+        /* Profile & Entrance Animation */
         .profile-img-wrapper {
             position: relative;
             display: inline-block;
             margin-bottom: 10px;
+            animation: profileBounce 1s cubic-bezier(0.34, 1.56, 0.64, 1) 0.2s backwards;
+        }
+
+        @keyframes profileBounce {
+            0% {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
         }
 
         .profile-img {
@@ -400,6 +420,7 @@
             font-weight: 700;
             letter-spacing: -0.5px;
             margin-bottom: 4px;
+            animation: fadeIn 0.6s ease 0.4s backwards;
         }
 
         p.bio {
@@ -407,6 +428,12 @@
             color: #94a3b8;
             font-weight: 500;
             margin-bottom: 16px;
+            animation: fadeIn 0.6s ease 0.5s backwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         /* Links List */
@@ -414,6 +441,7 @@
             display: flex;
             flex-direction: column;
             gap: 10px;
+            animation: fadeIn 0.6s ease 0.6s backwards;
         }
 
         .link-btn {
@@ -444,6 +472,17 @@
             justify-content: center;
         }
 
+        .link-btn img.custom-icon {
+            width: 24px;
+            height: 24px;
+            text-align: center;
+            transition: all 0.25s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            object-fit: contain;
+        }
+
         .link-btn span {
             flex-grow: 1;
             text-align: center;
@@ -458,8 +497,10 @@
             font-weight: 700;
         }
 
+        /* Hanya ubah warna ikon FontAwesome saja saat hover, biarkan custom-icon tetap aman */
         .link-btn:hover i {
             color: #0f172a;
+            filter: brightness(0);
         }
 
         /* Action Buttons */
@@ -492,17 +533,17 @@
 </head>
 <body>
 
-    <!-- Dynamic Nebula Glow (Latar Awal) -->
+    <!-- Dynamic Nebula Glow -->
     <div class="nebula-glow"></div>
 
-    <!-- Background Videos Preloaded -->
+    <!-- Background Videos -->
     <video id="bg-video1" class="bg-video" src="https://files.catbox.moe/zkw6yy.mp4" muted loop playsinline preload="auto"></video>
     <video id="bg-video2" class="bg-video" src="https://files.catbox.moe/1wkocl.mp4" muted loop playsinline preload="auto"></video>
 
     <!-- Transisi Effect Overlay -->
     <div class="tv-overlay" id="tv-overlay"></div>
 
-    <!-- Elemen Audio (Preloaded) -->
+    <!-- Audio Elemen -->
     <audio id="audio1" src="https://mp3tourl.com/audio/1791727675825-d2d0a41a-8860-44b5-9bbe-be9a22a69250.mp3" preload="auto" loop></audio>
     <audio id="audio2" src="https://mp3tourl.com/audio/1791727764492-32759a8e-627d-4f40-8284-6bea96741e8d.mp3" preload="auto" loop></audio>
 
@@ -513,7 +554,7 @@
     <div class="citylight-glow"></div>
 
     <div class="container">
-        <!-- Tombol & Menu Musik di dalam Card (Pojok Kanan Atas) -->
+        <!-- Music Controller -->
         <div class="music-controller">
             <button class="speaker-btn" onclick="toggleMusicMenu()" title="Atur Musik">
                 <i class="fa-solid fa-volume-xmark" id="speaker-icon"></i>
@@ -557,10 +598,17 @@
                 <div style="width: 20px;"></div>
             </a>
 
-            <!-- GitHub / Portfolio -->
+            <!-- GitHub -->
             <a href="https://github.com/kvnathhllh" target="_blank" rel="noopener noreferrer" class="link-btn">
                 <i class="fa-brands fa-github"></i>
-                <span>GitHub & Portofolio</span>
+                <span>GitHub</span>
+                <div style="width: 20px;"></div>
+            </a>
+
+            <!-- My Portfolio -->
+            <a href="https://bykaj.my.id" target="_blank" rel="noopener noreferrer" class="link-btn">
+                <img src="https://files.catbox.moe/31tzqx.png" alt="Portfolio Icon" class="custom-icon">
+                <span>My Portfolio</span>
                 <div style="width: 20px;"></div>
             </a>
 
@@ -577,7 +625,7 @@
             <i class="fa-regular fa-copy"></i> <span id="copy-text">Salin Link Website</span>
         </button>
 
-        <!-- Watermark Sumber Video TikTok (Di dalam Card) -->
+        <!-- Watermark Sumber Video TikTok -->
         <div class="watermark hidden" id="video-watermark">
             <i class="fa-brands fa-tiktok"></i>
             <span>Source Video & Music:</span>
@@ -592,12 +640,10 @@
 
     <!-- Script Javascript -->
     <script>
-        // Efek Bintang & Partikel Debu Latar Belakang
         const starsContainer = document.getElementById('stars');
         const numberOfStars = 60;
         const numberOfDust = 15;
 
-        // Bintang Twinkle
         for (let i = 0; i < numberOfStars; i++) {
             const star = document.createElement('div');
             star.classList.add('star');
@@ -618,7 +664,6 @@
             starsContainer.appendChild(star);
         }
 
-        // Partikel Debu Kosmik Melayang
         for (let i = 0; i < numberOfDust; i++) {
             const dust = document.createElement('div');
             dust.classList.add('dust-particle');
@@ -635,19 +680,16 @@
             starsContainer.appendChild(dust);
         }
 
-        // Fungsi Pembuat Meteor Realistis Dinamis (Shooting Stars)
         function spawnMeteor() {
-            // Jangan spawn meteor jika background video sedang aktif
             if (document.body.classList.contains('video-active')) return;
 
             const meteor = document.createElement('div');
             meteor.classList.add('meteor');
 
-            // Posisi awal acak di area kanan atas layar
             const startX = Math.random() * window.innerWidth + window.innerWidth * 0.2;
             const startY = Math.random() * (window.innerHeight * 0.4);
-            const length = Math.random() * 80 + 100; // Panjang ekor meteor
-            const duration = Math.random() * 1.2 + 0.8; // Kecepatan realistis
+            const length = Math.random() * 80 + 100;
+            const duration = Math.random() * 1.2 + 0.8;
 
             meteor.style.left = `${startX}px`;
             meteor.style.top = `${startY}px`;
@@ -656,18 +698,15 @@
 
             starsContainer.appendChild(meteor);
 
-            // Hapus elemen meteor setelah animasi selesai agar tidak membebani memori
             setTimeout(() => {
                 meteor.remove();
             }, duration * 1000);
         }
 
-        // Interval kemunculan meteor secara berkala dan natural
         setInterval(() => {
             spawnMeteor();
         }, 2200);
 
-        // Kontrol Musik, Video Background, & Efek Transisi
         const audio1 = document.getElementById('audio1');
         const audio2 = document.getElementById('audio2');
         const speakerIcon = document.getElementById('speaker-icon');
@@ -751,7 +790,6 @@
             musicMenu.classList.add('hidden');
         }
 
-        // Fungsi Salin Link Website
         function copyLink() {
             navigator.clipboard.writeText(window.location.href);
             const copyText = document.getElementById('copy-text');
@@ -763,5 +801,3 @@
     </script>
 </body>
 </html>
-
-    
